@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { SignupInput } from "@milderbronze/medium";
+import { SignupInput } from "../../../common/src/index";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 
@@ -25,7 +25,7 @@ export const Auth = (props: { type: "signup" | "signin" }) => {
       console.log("data", data)
       console.log("data", data.token)
       localStorage.setItem("token", data.token);
-      navigate("/blogs");
+      props.type === "signup" ? navigate("/signin") : navigate("/blogs");
     } catch (e: any) {
       console.error("Error during signup/signin:", e.response?.data || e.message); // Log error details
       alert("Error while signing up");
