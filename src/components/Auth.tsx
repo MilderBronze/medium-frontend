@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { SignupInput } from "../../../common/src/index";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
+import { SignupInput } from "@milderbronze/medium";
 
 export const Auth = (props: { type: "signup" | "signin" }) => {
   // meaning props is gonna be an object which contains a key called as type which can have only 2 values namely signup and signin
