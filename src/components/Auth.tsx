@@ -24,7 +24,7 @@ export const Auth = (props: { type: "signup" | "signin" }) => {
       const data = response.data;
       console.log("data", data)
       console.log("data", data.token)
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("token", `Bearer ${data.token}`);
       props.type === "signup" ? navigate("/signin") : navigate("/blogs");
     } catch (e: any) {
       console.error("Error during signup/signin:", e.response?.data || e.message); // Log error details
