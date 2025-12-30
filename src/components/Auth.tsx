@@ -12,6 +12,11 @@ export const Auth = (props: { type: "signup" | "signin" }) => {
     email: "",
     password: "",
   });
+  type InputType = {
+    email: string;
+    password: string;
+    name?: string | undefined;
+  }
 
   async function sendRequest() {
     try {
@@ -57,7 +62,7 @@ export const Auth = (props: { type: "signup" | "signin" }) => {
                 label="Name"
                 placeholder="enter your name here"
                 onChange={(e) => {
-                  setPostInputs((c) => ({
+                  setPostInputs((c: InputType) => ({
                     ...c,
                     name: e.target.value,
                   }));
